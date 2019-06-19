@@ -1,0 +1,42 @@
+/* #Default Styles
+================================================== */
+
+	.left, .alignleft {float:left;}
+		.alignleft { margin:0 20px 20px 0; }
+	.right, .alignright {float:right;}
+		.alignright { margin:0 0 20px 20px; }
+
+	.full {width:100%;}
+	.half {width:50%;}
+	.quarter {width: 25%;}
+	.third {width: 33.3333%;}
+
+	.rel {position:relative;}
+	.abs {position:absolute;}
+	.fixed {position:fixed;}
+
+	.inline-block {display:inline-block;vertical-align:middle;}
+	.table {display:table;}
+	.tr {display:table-row;}
+	.td {display:table-cell;vertical-align:middle;}
+
+	.no-padding {padding:0;}
+	.no-margin {margin:0;}
+	
+	.hide{ display:none; }
+	.captionjs.hide { display:block !important; }
+	
+	img { max-width: 100%; }
+
+	.mobile-hide, .tablet-hide { display:block; }
+	.mobile-show, .tablet-show { display:none; }
+
+	@media only screen and (min-width: 768px) and (max-width: 992px) {
+		.tablet-hide { display:none !important; }
+		.tablet-show { display:block !important; }
+	}
+
+	@media only screen and (max-width: 767px) {
+		.mobile-hide { display:none !important; }
+		.mobile-show { display:block !important; }
+	}

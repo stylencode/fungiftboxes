@@ -1,0 +1,114 @@
+	h1, h2, h3, h4, h5, h6 {
+		margin-top:0px;
+		font-family: 'Cormorant', serif;
+		text-transform: uppercase;
+	}
+	
+	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+	}
+	
+	body, p, span, b, strong, i, em, li, a {
+		font-family: 'Roboto', sans-serif;	
+		letter-spacing: em(1.5);
+	}
+
+.archive h1 {
+	background: transparent;
+}
+	
+	h1 {
+		font-size: em(56);
+		letter-spacing: em(1);
+		width: 100%;
+		padding: em(10);
+		background: rgba(255,255,255,.9);
+		border: 3px solid $grey;
+		color: $dkgrey;
+		width: 100%;
+		display: block;
+		text-align: center;
+		
+		span {
+			width: 100%;
+			color: $black;
+			font-size: 30px;
+			display: block;
+		}
+	}
+	
+	h2 {
+		font-size: em(42);
+		letter-spacing: em(1);
+		border: 3px solid $white;
+		padding: 15px 90px;
+		color: $white;
+		margin-bottom: 30px;
+		
+		&.alt {
+			border: none;
+			background: $grey;
+			text-align: center;
+			padding: 15px;
+			width: 100%;
+		}
+	}
+		
+	h3 {
+		font-size: em(53);
+		letter-spacing: em(2);
+		color: $white;
+	}
+	
+	h4 {
+		color: $blue;
+		font-family: 'Roboto', sans-serif;
+		padding: 25px 0;
+		font-size: em(30);
+	}
+	
+	h5 {
+		font-size: em(42);
+		letter-spacing: em(1);
+		background: $dkblue;
+		padding: 15px 90px;
+		color: $white;
+		margin-bottom: 80px;
+	}
+	
+	p, p a {
+		font-size:em(24);
+		line-height:30px;
+		color: $dkgrey;
+	}
+	
+	a {
+		text-decoration:none;
+		@include transition(all,.5s,ease-in-out);
+		&:hover {
+			text-decoration:none;
+		}
+	}
+	
+	p b, p strong, b, strong {
+		font-weight: 700;
+	}
+	
+	p i, p em, i, em {
+		font-style:italic;
+	}
+	
+	img {
+		display:block;
+	}
+	
+	hr {
+		max-width: 105px;
+		border-bottom: 2px solid $grey;
+		
+		&.orange {
+			border-bottom: 2px solid $orange
+		}
+		&.white {
+			border-bottom: 2px solid $white
+		}
+	}

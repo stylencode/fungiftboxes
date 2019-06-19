@@ -1,0 +1,185 @@
+$black: #231f20;
+$grey: #c1c1c1;
+$dkgrey: #6a6a6a;
+$white: #f7f7f7;
+$ltblue: #8ccfd9;
+$blue: #8ccfd9;
+$dkblue: #09a8be;
+$orange: #f36c33;
+$gold: #d4b26b;
+
+/* ADDS A BROWSER PREFIX TO THE PROPERTY */
+@mixin css3-prefix($property, $value) {
+  -webkit-#{$property}: #{$value};
+   -khtml-#{$property}: #{$value};
+     -moz-#{$property}: #{$value};
+      -ms-#{$property}: #{$value};
+       -o-#{$property}: #{$value};
+          #{$property}: #{$value};
+}
+
+/* BACKGROUND COLOR OPACITY */
+@mixin background-opacity($color: #000, $opacity: 0.85) {
+  background: $color;
+  background: rgba($color, $opacity);
+}
+
+/* BORDER RADIUS */
+@mixin border-radius($radius: 5px) {
+    @include css3-prefix('border-radius', $radius);
+}
+
+/* BOX SHADOW */
+@mixin box-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4), $inset: "") {
+  @if ($inset != "") {
+    @include css3-prefix('box-shadow', $inset $x $y $blur $color);
+  } @else {
+    @include css3-prefix('box-shadow', $x $y $blur $color);
+  }
+}
+
+/* OPACITY */
+@mixin opacity($opacity: 0.5) {
+    $opacityMultiplied: ($opacity * 100);
+    
+    filter:         alpha(opacity=$opacityMultiplied);
+    -ms-filter:     "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + $opacityMultiplied + ")";
+    @include css3-prefix('opacity', $opacity);
+}
+
+/* TRANSITION */
+@mixin transition($properties...) {
+  
+  @if length($properties) >= 1 {
+    @include css3-prefix('transition', $properties);
+  }
+
+  @else {
+    @include css3-prefix('transition', $what: all, $length: 1s, $easing: ease-in-out);
+  }
+}
+
+/* KEYFRAMES */
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }  
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }  
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+/* ANIMATION */
+@mixin animation($str) {
+  @include css3-prefix('animation', $str);
+}
+
+/* PX TO EM FUNCTION */
+
+$browser-context: 16; // Default
+
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em;
+}
+
+/* BUTTON */
+@mixin button($background:$dkgrey, $color:$white, $hover:$white, $hoverColor:$black) {
+	background:$background;
+	color:$color;
+	position:relative;
+	overflow:hidden;
+	transition: all .5s ease-in-out;
+				-moz-transition: all .5s ease-in-out;
+				-webkit-transition: all .5s ease-in-out;
+				-o-transition: all .5s ease-in-out;
+	&:hover {
+		background-color:$hover;
+		color:$hoverColor;
+		border: 2px solid $white;
+		
+		&:before {
+		  content: " ";
+		  position: absolute;
+		  z-index: 1;
+		  top: 3px;
+		  left: 3px;
+		  right: 3px;
+		  bottom: 3px;
+		  border: 1px solid $black;
+		}
+	}
+}
+
+
+.button {
+	@include button;
+	padding: 15px 50px;
+  	border: 2px solid $dkgrey;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: em(18);
+	letter-spacing: em(1);
+	position: relative;
+	
+	&:before {
+	  content: " ";
+	  position: absolute;
+	  z-index: 1;
+	  top: 3px;
+	  left: 3px;
+	  right: 3px;
+	  bottom: 3px;
+	  border: 1px solid $white;
+	}
+	
+	&.grey {
+		background: $grey;
+		border: 2px solid $grey;
+		
+		&:hover {
+			background-color:$black;
+			color: $white;
+			border: 2px solid $white;
+
+			&:before {
+			  border: 1px solid $white; 
+			}
+		}
+	}
+	&.white {
+		background: $white;
+		border: 2px solid transparent;
+		color: $grey;
+		
+		&:before {
+		  content: " ";
+		  position: absolute;
+		  z-index: 1;
+		  top: 3px;
+		  left: 3px;
+		  right: 3px;
+		  bottom: 3px;
+		  border: 1px solid $grey;
+		}
+		
+		
+		&:hover {
+			background-color:$dkgrey;
+			color: $white;
+			border: 2px solid $dkgrey;
+
+			&:before {
+			  border: 1px solid $white; 
+			}
+		}
+	}
+}
