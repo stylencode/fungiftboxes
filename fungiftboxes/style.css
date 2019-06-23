@@ -227,7 +227,12 @@ a.filter-tag:hover
 
 
 
+h2.component_title  {
 
+    border: 3px solid #09a8be !important;
+    color:#09a8be !important;
+
+}
 
 
 
